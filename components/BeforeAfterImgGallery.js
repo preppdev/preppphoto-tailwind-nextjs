@@ -9,7 +9,7 @@ const BeforeAfterImgGallery = () => {
     <ul
       ref={imageContainer}
       role="list"
-      className="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+      className="mx-auto max-w-full space-y-4 p-1 lg:grid lg:max-w-5xl lg:grid-cols-2 lg:gap-5 lg:space-y-0"
     >
       <li>{BeforeAfterImgSlider(0, 1)}</li>
       <li>{BeforeAfterImgSlider(2, 3)}</li>

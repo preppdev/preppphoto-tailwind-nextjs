@@ -5,20 +5,21 @@ import { MenuIcon } from '@heroicons/react/outline'
 import ServicesMenu from 'components/navmenus/ServicesMenu'
 import Logo from 'data/logo.svg'
 import Contact from 'components/navmenus/ContactMenu'
-import MobileNav from 'components/MobileNav'
+import MobileNav from 'components/navmenus/MobileNav'
 import { useTheme } from 'next-themes'
 import siteMetadata from 'data/siteMetadata'
 import DarkLogo from 'data/logo-dark.svg'
 import ThemeSwitch from 'components/ThemeSwitch'
 
-const Header = ({ scrolled }) => {
+const Header = (scrolled) => {
   const { theme } = useTheme()
-  let headerClass = scrolled ? ' shadow bg-gray' : ''
-
   return (
-    <header className={headerClass}>
+    <header className="sticky top-0 z-20 -mt-4 min-w-full bg-white dark:bg-gray-900">
       <Popover className="relative">
-        <div className="pointer-events-none absolute inset-0 z-30 shadow" aria-hidden="true" />
+        <div
+          className={scrolled ? 'pointer-events-none absolute inset-0 z-30' : 'shadow'}
+          aria-hidden="true"
+        />
         <div className="relative z-20">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 sm:py-4 md:justify-start md:space-x-10 lg:px-8">
             {theme === 'dark' ? (
@@ -35,21 +36,20 @@ const Header = ({ scrolled }) => {
               </Link>
             )}
 
-            <ThemeSwitch />
-
             <div className="-my-2 -mr-2 md:hidden">
-              <Popover.Button className="inline-flex items-center justify-center rounded-md  p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              <Popover.Button className="inline-flex items-center justify-center rounded-md  p-2 text-gray-400 hover:bg-gray-100 hover:text-prepp-orange focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
               </Popover.Button>
             </div>
             <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
+              <ThemeSwitch />
               <Popover.Group as="nav" className="flex space-x-10">
                 {/* services dropdown */}
                 <ServicesMenu />
                 <Link
                   href="/samples"
-                  className="text-base font-medium text-gray-500 hover:text-indigo-700"
+                  className="text-base font-medium text-gray-500 hover:text-prepp-orange"
                 >
                   {/* samples */}
                   <a>Samples</a>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { PlayIcon } from '@heroicons/react/outline'
 
 const WatchDemo = () => {
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(null)
 
   const openModal = () => {
     setModal(!modal)

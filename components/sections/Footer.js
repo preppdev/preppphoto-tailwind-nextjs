@@ -8,6 +8,7 @@ import legal from 'data/legalData'
 import siteMetadata from 'data/siteMetadata'
 import { useTheme } from 'next-themes'
 import DarkLogo from 'data/logo-dark.svg'
+import ThemeSwitch from 'components/ThemeSwitch'
 
 const Footer = () => {
   const { theme } = useTheme()
@@ -51,12 +52,12 @@ const Footer = () => {
                   <ul role="list" className="mt-4 space-y-4">
                     {services.map((service) => (
                       <li key={service.name}>
-                        <a
+                        <Link
                           href={service.href}
                           className="text-base text-gray-500 hover:text-gray-900"
                         >
-                          {service.name}
-                        </a>
+                          <a>{service.name}</a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -70,12 +71,12 @@ const Footer = () => {
                       .filter((x) => x < 2)
                       .map((sample) => (
                         <li key={sample.name} samples={sample}>
-                          <a
+                          <Link
                             href={sample.href}
                             className="text-base text-gray-500 hover:text-gray-900"
                           >
-                            {sample.name}
-                          </a>
+                            <a>{sample.name}</a>
+                          </Link>
                         </li>
                       ))}
                   </ul>
@@ -85,7 +86,11 @@ const Footer = () => {
                     </Link>
                   </div>
                 </div>
+                <div>
+                  <ThemeSwitch />
+                </div>
               </div>
+
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
@@ -94,13 +99,17 @@ const Footer = () => {
                   <ul role="list" className="mt-4 space-y-4">
                     {company.map((co) => (
                       <li key={co.name}>
-                        <a href={co.href} className="text-base text-gray-500 hover:text-gray-900">
-                          {co.name}
-                        </a>
+                        <Link
+                          href={co.href}
+                          className="text-base text-gray-500 hover:text-gray-900"
+                        >
+                          <a>{co.name}</a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
+
                 <div className="mt-12 md:mt-0">
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                     Legal
@@ -108,9 +117,12 @@ const Footer = () => {
                   <ul role="list" className="mt-4 space-y-4">
                     {legal.map((leg) => (
                       <li key={leg.name}>
-                        <a href={leg.href} className="text-base text-gray-500 hover:text-gray-900">
-                          {leg.name}
-                        </a>
+                        <Link
+                          href={leg.href}
+                          className="text-base text-gray-500 hover:text-gray-900"
+                        >
+                          <a>{leg.name}</a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -118,9 +130,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-            <div>{siteMetadata.author}</div>
-            <div>{` • `}</div>
+          <div className="flex space-x-2 pt-4 text-sm text-black dark:text-prepp-orange">
             <div>{`© ${new Date().getFullYear()}`}</div>
             <div>{` • `}</div>
             <Link href="/">{siteMetadata.title}</Link>

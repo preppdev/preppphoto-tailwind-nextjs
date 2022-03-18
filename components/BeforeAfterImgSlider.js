@@ -41,49 +41,44 @@ const BeforeAfterImgSlider = (beforeImage, afterImage) => {
   }
 
   return (
-    <div className="aspect-h-9 aspect-w-16">
+    <div ref={imageContainer} className="group aspect-h-9 aspect-w-16 relative mx-auto select-none">
+      {beforeAfterArray(beforeImage)}
       <div
-        ref={imageContainer}
-        className="group aspect-h-9 aspect-w-16 relative mx-auto select-none"
+        style={{
+          filter: 'transparent(100%)',
+          clipPath: `polygon(0 0, ${imageRevealFraq * 100}% 0, ${
+            imageRevealFraq * 100
+          }% 100%, 0 100%)`,
+        }}
       >
-        {beforeAfterArray(beforeImage)}
-        <div
-          style={{
-            filter: 'transparent(100%)',
-            clipPath: `polygon(0 0, ${imageRevealFraq * 100}% 0, ${
-              imageRevealFraq * 100
-            }% 100%, 0 100%)`,
-          }}
-        >
-          {beforeAfterArray(afterImage)}
-        </div>
-        <div
-          style={{ left: `${imageRevealFraq * 100}%` }}
-          className="absolute inset-y-0 group-hover:opacity-100 md:opacity-0"
-        >
-          <div className="relative h-full opacity-50 hover:opacity-100">
-            <div className="absolute inset-y-0 -ml-px w-0.5 bg-white "></div>
-            <div
-              style={{ touchAction: 'none' }}
-              onMouseDown={handleMouseDown}
-              onTouchMove={handleTouchMove}
-              className="absolute top-1/2 -ml-6 -mt-6 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-xl"
+        {beforeAfterArray(afterImage)}
+      </div>
+      <div
+        style={{ left: `${imageRevealFraq * 100}%` }}
+        className="absolute inset-y-0 group-hover:opacity-100 md:opacity-0"
+      >
+        <div className="relative h-full opacity-50 hover:opacity-100">
+          <div className="absolute inset-y-0 -ml-px w-0.5 bg-white dark:bg-black "></div>
+          <div
+            style={{ touchAction: 'none' }}
+            onMouseDown={handleMouseDown}
+            onTouchMove={handleTouchMove}
+            className="absolute top-1/2 -ml-6 -mt-6 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-xl dark:bg-gray-900"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="tex-gray-400 w-6 rotate-90 transform cursor-pointer"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="tex-gray-400 w-6 rotate-90 transform cursor-pointer"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-                />
-              </svg>
-            </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+              />
+            </svg>
           </div>
         </div>
       </div>

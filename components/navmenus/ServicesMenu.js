@@ -20,16 +20,16 @@ const ServicesMenu = () => {
         <>
           <Popover.Button
             className={classNames(
-              open ? 'text-white' : 'text-gray-500',
-              'group inline-flex items-center rounded-md text-base font-medium hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+              open ? 'text-prepp-blue' : 'text-gray-500',
+              'group inline-flex items-center rounded-md text-base font-medium hover:text-prepp-orange focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
             )}
             ref={buttonRef}
           >
             <span>Services</span>
             <ChevronDownIcon
               className={classNames(
-                open ? 'text-gray-600' : 'text-gray-400',
-                'ml-2 h-5 w-5 group-hover:text-gray-500'
+                open ? 'text-prepp-blue' : 'text-gray-500',
+                'ml-2 h-5 w-5 group-hover:text-prepp-orange'
               )}
               aria-hidden="true"
             />
@@ -79,7 +79,7 @@ const ServicesMenu = () => {
                     <li key={item.name} className="flow-root">
                       <Link
                         href={item.href}
-                        className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-50"
+                        className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:text-prepp-orange"
                         onClick={() => buttonRef.current?.click()}
                       >
                         <item.icon

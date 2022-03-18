@@ -43,6 +43,7 @@ const About = () => {
                 <div className="flex items-center space-x-3">
                   <div className="flex-shrink-0">
                     <Image
+                      loading="lazy"
                       className="h-6 w-6 rounded-full"
                       src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
                       alt=""
@@ -61,6 +62,7 @@ const About = () => {
         <div className="mt-12 sm:mt-16 lg:mt-0">
           <div className="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
             <Image
+              loading="lazy"
               className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
               src="https://images.squarespace-cdn.com/content/v1/60be3f15c04ff53428559e91/5e66acca-4d1b-442d-b15f-5d6d40dbc0c6/Team.jpg?format=1500w"
               alt="Inbox user interface"

@@ -21,7 +21,7 @@ const Contact = () => {
             <Popover.Button
               className={classNames(
                 open ? 'text-indigo-700' : 'text-gray-500',
-                'group inline-flex items-center rounded-md text-base font-medium hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 '
+                'group inline-flex items-center rounded-md text-base font-medium hover:text-prepp-orange focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 '
               )}
               ref={buttonRef}
             >
@@ -29,7 +29,7 @@ const Contact = () => {
               <ChevronDownIcon
                 className={classNames(
                   open ? 'text-gray-600' : 'text-gray-400',
-                  'ml-2 h-5 w-5 group-hover:text-gray-500'
+                  'ml-2 h-5 w-5 group-hover:text-prepp-orange'
                 )}
                 aria-hidden="true"
               />
@@ -91,6 +91,7 @@ const Contact = () => {
                               >
                                 <div className="hidden flex-shrink-0 sm:block">
                                   <Image
+                                    loading="lazy"
                                     className="rounded-md object-cover"
                                     src={sample.imageSrc}
                                     alt={sample.title}
